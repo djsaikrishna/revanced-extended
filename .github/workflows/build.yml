@@ -110,7 +110,7 @@ jobs:
         run: |
           cd build || { echo "build folder not found"; exit 1; }
 
-          TG_CHAT="@rvc_magisk"
+          TG_CHAT="@RevancedExtendedMagisk"
           NL=$'\n'
           APKS=""
           MODULES=""
@@ -124,6 +124,7 @@ jobs:
           done
           MODULES=${MODULES#"$NL"}
           APKS=${APKS#"$NL"}
+          TIME="```${date}```"
 
           BODY="$(sed 's/^\* \*\*/↪ \*\*/g; s/^\* `/↪ \*\*/g; s/`/\*/g; s/^\* /\↪/g; s/\*\*/\*/g; s/###//g; s/^- /↪ /g; /^==/d;' ../build.md)"
           MSG="*New build!*
